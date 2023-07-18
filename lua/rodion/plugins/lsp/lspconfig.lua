@@ -112,11 +112,6 @@ lspconfig["sqlls"].setup({
 	on_attach = on_attach,
 })
 
-lspconfig["spectral"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
 lspconfig["terraformls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,

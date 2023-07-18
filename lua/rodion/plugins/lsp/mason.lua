@@ -32,7 +32,6 @@ mason_lspconfig.setup({
 		"graphql",
 		"jsonls",
 		"sqlls",
-		"spectral",
 		"terraformls",
 		"tflint",
 		"lua_ls",
