@@ -80,3 +80,9 @@ keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left
 
 -- change word under cursor in one line
 keymap.set("n", "<leader>ws", [[:,s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- open terminal
+keymap.set("n", "<leader>tt", ":split | terminal<CR>")
+
+-- quit terminal mode
+keymap.set("t", "<leader>q", "<C-\\><C-n>")
