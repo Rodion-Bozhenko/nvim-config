@@ -140,6 +140,15 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- noice ui
+	use({
+		"folke/noice.nvim",
+		requires = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+	})
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
