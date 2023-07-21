@@ -124,6 +124,14 @@ return packer.startup(function(use)
 		},
 	})
 
+	-- moving to search pattern
+	use({
+		"ggandor/leap.nvim",
+		config = function()
+			require("leap").set_default_keymaps()
+		end,
+	})
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
