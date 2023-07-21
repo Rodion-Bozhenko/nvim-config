@@ -170,9 +170,17 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- github issues and PRs in neovim
 	use({
-		"ldelossa/gh.nvim",
-		requires = { { "ldelossa/litee.nvim" } },
+		"pwntester/octo.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+			require("octo").setup()
+		end,
 	})
 
 	if packer_bootstrap then
