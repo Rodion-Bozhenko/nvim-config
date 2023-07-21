@@ -183,6 +183,14 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- learn neovim
+	use({
+		"m4xshen/hardtime.nvim",
+		config = function()
+			require("hardtime").setup()
+		end,
+	})
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
