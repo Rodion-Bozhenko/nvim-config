@@ -149,6 +149,15 @@ return packer.startup(function(use)
 		},
 	})
 
+	-- harpoon
+	use({
+		"ThePrimeagen/harpoon",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-lua/popup.nvim",
+		},
+	})
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
