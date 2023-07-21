@@ -132,6 +132,14 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- highlight all uses of word under cursor
+	use({
+		"RRethy/vim-illuminate",
+		config = function()
+			vim.g.Illuminate_delay = 0
+		end,
+	})
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
