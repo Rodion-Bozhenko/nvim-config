@@ -49,6 +49,51 @@ keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
+-- change word under cursor in whole file
+keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- change word under cursor in one line
+keymap.set("n", "<leader>ws", [[:,s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- toggle terminal
+keymap.set("n", "<leader>tt", ":lua Toggle_terminal()<CR>", { noremap = true, silent = true })
+keymap.set("t", "<leader>tt", "<C-\\><C-n>:lua Toggle_terminal()<CR>", { noremap = true, silent = true })
+
+function _G.Toggle_terminal()
+	-- If the terminal is open and valid
+	if vim.g.terminal_bufid and vim.api.nvim_buf_is_valid(vim.g.terminal_bufid) then
+		-- Check if terminal is visible
+		local is_visible = false
+		local wins = vim.api.nvim_list_wins()
+
+		for _, win in ipairs(wins) do
+			if vim.api.nvim_win_get_buf(win) == vim.g.terminal_bufid then
+				is_visible = true
+				vim.api.nvim_win_hide(win)
+				break
+			end
+		end
+
+		-- If the terminal is not visible, show it
+		if not is_visible then
+			vim.api.nvim_command("15split")
+			vim.api.nvim_win_set_buf(0, vim.g.terminal_bufid)
+			vim.cmd("startinsert")
+		end
+	else
+		-- If the terminal is not open or not valid, open it
+		vim.api.nvim_command("15split | terminal")
+		vim.cmd("startinsert")
+		vim.g.terminal_bufid = vim.api.nvim_get_current_buf()
+	end
+end
+
+-- quit terminal
+keymap.set("t", "<leader>q", "<C-\\><C-n>:bd!<CR>")
+
+-- quit terminal mode
+keymap.set("t", "<ESC>", "<C-\\><C-n>")
+
 ----------------------
 -- Plugin Keybinds
 ----------------------
@@ -74,15 +119,3 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 
 -- restart lsp server
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
-
--- change word under cursor in whole file
-keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- change word under cursor in one line
-keymap.set("n", "<leader>ws", [[:,s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- open terminal
-keymap.set("n", "<leader>tt", ":split | terminal<CR>")
-
--- quit terminal mode
-keymap.set("t", "<leader>q", "<C-\\><C-n>")
