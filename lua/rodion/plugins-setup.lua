@@ -170,6 +170,11 @@ return packer.startup(function(use)
 		end,
 	})
 
+	use({
+		"ldelossa/gh.nvim",
+		requires = { { "ldelossa/litee.nvim" } },
+	})
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
