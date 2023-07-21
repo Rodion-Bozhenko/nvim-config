@@ -158,6 +158,9 @@ return packer.startup(function(use)
 		},
 	})
 
+	-- colorizer
+	use("NvChad/nvim-colorizer.lua")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
