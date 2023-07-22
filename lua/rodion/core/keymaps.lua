@@ -94,6 +94,23 @@ keymap.set("t", "<leader>q", "<C-\\><C-n>:bd!<CR>")
 -- quit terminal mode
 keymap.set("t", "<ESC>", "<C-\\><C-n>")
 
+vim.g.original_term_height = vim.fn.winheight("%")
+vim.g.is_term_maximized = false
+
+function _G.Toggle_term_height()
+	if vim.g.is_term_maximized then
+		vim.cmd("resize " .. vim.g.original_term_height)
+		vim.g.is_term_maximized = false
+	else
+		vim.g.original_term_height = vim.fn.winheight("%")
+		vim.cmd("resize")
+		vim.g.is_term_maximized = true
+	end
+end
+
+-- toggle terminal height
+keymap.set("n", "<leader>m", ":lua Toggle_term_height()<CR>", { noremap = true, silent = true })
+
 ----------------------
 -- Plugin Keybinds
 ----------------------
