@@ -10,6 +10,14 @@ local keymap = vim.keymap -- for conciseness
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>")
 
+-- vertical movement with placing cursor in the middle of screen
+vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
+
+-- center cursor when going though search
+vim.api.nvim_set_keymap("n", "n", "nzz", { noremap = true })
+vim.api.nvim_set_keymap("n", "N", "Nzz", { noremap = true })
+
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
@@ -87,9 +95,6 @@ function _G.Toggle_terminal()
 		vim.g.terminal_bufid = vim.api.nvim_get_current_buf()
 	end
 end
-
--- quit terminal
-keymap.set("t", "<leader>q", "<C-\\><C-n>:bd!<CR>")
 
 -- quit terminal mode
 keymap.set("t", "<ESC>", "<C-\\><C-n>")
