@@ -45,6 +45,6 @@ opt.scrolloff = 8
 vim.cmd([[
   augroup highlight_yank
     autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank{on_visual = false}
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="Visual", timeout=200}
   augroup END
 ]])
