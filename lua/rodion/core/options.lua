@@ -40,7 +40,7 @@ opt.splitbelow = true
 
 opt.iskeyword:append("-")
 
-opt.scrolloff = 8
+opt.scrolloff = 16
 
 vim.cmd([[
   augroup highlight_yank
