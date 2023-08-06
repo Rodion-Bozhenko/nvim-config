@@ -111,8 +111,9 @@ return packer.startup(function(use)
 
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
-	use("github/copilot.vim") -- copilot
+	use("tpope/vim-fugitive")
 
+	-- transparent background
 	use("xiyaowong/transparent.nvim")
 
 	-- image preview
@@ -185,9 +186,6 @@ return packer.startup(function(use)
 
 	-- indent lines
 	use("lukas-reineke/indent-blankline.nvim")
-
-	-- git integration
-	use("tpope/vim-fugitive")
 
 	if packer_bootstrap then
 		require("packer").sync()
