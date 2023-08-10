@@ -8,10 +8,8 @@ vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.nvim_tree_respect_buf_cwd = 1
 
--- change color for arrows in tree to light blue
-vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
+vim.cmd([[ highlight NvimTreeIndentMarker guifg=#9ccfd8 ]])
 
--- change color for floating window to transparent
 vim.cmd([[
   augroup NvimTreeOverride
     autocmd!

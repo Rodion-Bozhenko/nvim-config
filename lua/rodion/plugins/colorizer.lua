@@ -4,6 +4,7 @@ require("colorizer").setup({
 		"scss",
 		"less",
 		"html",
+		"lua",
 	},
 	css = true,
 	rgb_fn = true,
