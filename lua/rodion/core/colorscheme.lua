@@ -1,7 +1,7 @@
 require("rose-pine").setup({
 	highlight_groups = {
 		Function = { fg = "#94B3FD", bg = "none" },
-		Type = { fg = "#78C1F3", bg = "none" },
+		Type = { fg = "rose", bg = "none" },
 		Operator = { fg = "love", bg = "none" },
 		Boolean = { fg = "love", bg = "none" },
 		["@keyword.operator"] = { fg = "love", bg = "none" },
@@ -9,8 +9,9 @@ require("rose-pine").setup({
 		["@method"] = { fg = "#94B3FD", bg = "none" },
 		["@namespace.go"] = { fg = "love", bg = "none" },
 		["@function.builtin.go"] = { fg = "#9ccfd8", bg = "none" },
-
-		NvimTreeFolderName = { fg = "iris", bg = "none" },
+		["@tag.delimiter.css"] = { fg = "iris", bg = "none" },
+		["@number.css"] = { fg = "iris", bg = "none" },
+		["@string.css"] = { fg = "iris", bg = "none" },
 
 		Pmenu = { fg = "none", bg = "none" },
 		CmpItemKind = { fg = "love", bg = "none" },
