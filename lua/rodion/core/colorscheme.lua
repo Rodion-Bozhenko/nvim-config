@@ -1,12 +1,13 @@
 require("rose-pine").setup({
 	highlight_groups = {
 		Function = { fg = "#94B3FD", bg = "none" },
-		Type = { fg = "rose", bg = "none" },
+		Type = { fg = "#78C1F3", bg = "none" },
 		Operator = { fg = "love", bg = "none" },
 		Boolean = { fg = "love", bg = "none" },
 		["@keyword.operator"] = { fg = "love", bg = "none" },
+		["@type.builtin"] = { fg = "rose", bg = "none" },
 		["@keyword.operator.tsx"] = { fg = "love", bg = "none" },
-		["@method"] = { fg = "#94B3FD", bg = "none" },
+		["@method"] = { fg = "foam", bg = "none" },
 		["@namespace.go"] = { fg = "love", bg = "none" },
 		["@function.builtin.go"] = { fg = "#9ccfd8", bg = "none" },
 		["@tag.delimiter.css"] = { fg = "iris", bg = "none" },
