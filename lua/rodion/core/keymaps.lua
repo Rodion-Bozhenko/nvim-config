@@ -18,6 +18,9 @@ vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
 vim.api.nvim_set_keymap("n", "n", "nzz", { noremap = true })
 vim.api.nvim_set_keymap("n", "N", "Nzz", { noremap = true })
 
+-- search in current line
+keymap.set("n", "<leader>ws", '/\\%<C-R>=line(".")<CR>l\\<', { noremap = true, silent = true })
+
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
@@ -52,20 +55,15 @@ keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
 keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 
-keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
-keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
-keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
-keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
-
 -- change word under cursor in whole file
-keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+keymap.set("n", "<leader>wfc", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- change word under cursor in one line
-keymap.set("n", "<leader>ws", [[:,s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>]])
+keymap.set("n", "<leader>wlc", [[:,s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- toggle terminal
-keymap.set("n", "<leader>tt", ":lua Toggle_terminal()<CR>", { noremap = true, silent = true })
-keymap.set("t", "<leader>tt", "<C-\\><C-n>:lua Toggle_terminal()<CR>", { noremap = true, silent = true })
+keymap.set("n", "<leader>ot", ":lua Toggle_terminal()<CR>", { noremap = true, silent = true })
+keymap.set("t", "<leader>ct", "<C-\\><C-n>:lua Toggle_terminal()<CR>", { noremap = true, silent = true })
 
 function _G.Toggle_terminal()
 	-- If the terminal is open and valid
@@ -141,3 +139,6 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 
 -- restart lsp server
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+
+-- fugitive
+keymap.set("n", "<leader>G", ":Git<CR>")
