@@ -1,7 +1,7 @@
 require("rose-pine").setup({
 	highlight_groups = {
 		Function = { fg = "#94B3FD", bg = "none" },
-		Type = { fg = "#78C1F3", bg = "none" },
+		Type = { fg = "rose", bg = "none" },
 		Operator = { fg = "love", bg = "none" },
 		Boolean = { fg = "love", bg = "none" },
 		["@keyword.operator"] = { fg = "love", bg = "none" },
