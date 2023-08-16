@@ -1,4 +1,5 @@
-require("rodion.plugins-setup")
+require("rodion.lazy-setup")
+-- require("rodion.plugins-setup")
 require("rodion.core.options")
 require("rodion.core.keymaps")
 require("rodion.core.colorscheme")

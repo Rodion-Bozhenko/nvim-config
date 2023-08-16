@@ -141,4 +141,4 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
 
 -- fugitive
-keymap.set("n", "<leader>G", ":Git<CR>")
+keymap.set("n", "<leader>G", ":Git<CR>", { noremap = true, silent = true })
