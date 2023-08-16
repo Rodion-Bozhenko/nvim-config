@@ -118,15 +118,6 @@ return packer.startup(function(use)
 	-- transparent background
 	use("xiyaowong/transparent.nvim")
 
-	-- image preview
-	use({
-		"princejoogie/chafa.nvim",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"m00qek/baleia.nvim",
-		},
-	})
-
 	-- moving to search pattern
 	use({
 		"ggandor/leap.nvim",
