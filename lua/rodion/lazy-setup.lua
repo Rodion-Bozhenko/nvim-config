@@ -59,8 +59,6 @@ require("lazy").setup({
 			"nvim-treesitter/nvim-treesitter",
 		},
 	},
-	-- additional functionality for typescript server (e.g. rename file & update imports)
-	"jose-elias-alvarez/typescript.nvim",
 	-- vs-code like icons for autocompletion
 	"onsails/lspkind.nvim",
 	-- formatting & linting: configure formatters & linters
@@ -129,4 +127,13 @@ require("lazy").setup({
 	},
 	-- indent lines
 	"lukas-reineke/indent-blankline.nvim",
+
+	-- go tooling
+	{
+		"olexsmir/gopher.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+	},
 })
