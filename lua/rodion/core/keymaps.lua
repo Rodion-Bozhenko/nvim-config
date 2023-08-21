@@ -45,6 +45,9 @@ keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 -- move selected line(s) up
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- netrw
+keymap.set("n", "<leader>e", ":E<CR>")
+
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>") -- increment
 keymap.set("n", "<leader>-", "<C-x>") -- decrement
@@ -120,9 +123,6 @@ keymap.set("n", "<leader>m", ":lua Toggle_term_height()<CR>", { noremap = true, 
 
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
-
--- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
 
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore

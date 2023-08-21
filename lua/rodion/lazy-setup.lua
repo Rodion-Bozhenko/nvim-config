@@ -16,6 +16,23 @@ require("lazy").setup({
 	-- themes
 	"rose-pine/neovim",
 	"bluz71/vim-nightfly-guicolors",
+	-- a lil nicer netrw
+	{
+		"prichrd/netrw.nvim",
+		config = function()
+			require("netrw").setup({
+				-- Put your configuration here, or leave the object empty to take the default
+				-- configuration.
+				icons = {
+					symlink = "", -- Symlink icon (directory and file)
+					directory = "", -- Directory icon
+					file = "", -- File icon
+				},
+				use_devicons = true, -- Uses nvim-web-devicons if true, otherwise use the file icon specified above
+				mappings = {}, -- Custom key mappings
+			})
+		end,
+	},
 	-- tmux & split window navigation
 	"christoomey/vim-tmux-navigator",
 	-- maximizes and restores current window
@@ -24,10 +41,6 @@ require("lazy").setup({
 	"tpope/vim-surround",
 	-- commenting with gc
 	"numToStr/Comment.nvim",
-	-- file explorer
-	"nvim-tree/nvim-tree.lua",
-	-- vs-code like icons
-	"nvim-tree/nvim-web-devicons",
 	-- statusline
 	"nvim-lualine/lualine.nvim",
 	-- fuzzy finding w/ telescope: dependency for better sorting performance
@@ -115,8 +128,6 @@ require("lazy").setup({
 			"nvim-lua/popup.nvim",
 		},
 	},
-	-- colorizer
-	"NvChad/nvim-colorizer.lua",
 	-- startup screen
 	{
 		"startup-nvim/startup.nvim",
