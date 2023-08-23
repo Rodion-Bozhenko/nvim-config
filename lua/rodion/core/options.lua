@@ -42,9 +42,6 @@ opt.iskeyword:append("-")
 
 opt.scrolloff = 16
 
-opt.spelllang = "en_us"
-opt.spell = true
-
 vim.cmd([[
   augroup highlight_yank
     autocmd!
