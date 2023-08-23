@@ -42,6 +42,8 @@ opt.iskeyword:append("-")
 
 opt.scrolloff = 16
 
+vim.opt.guicursor = ""
+
 vim.cmd([[
   augroup highlight_yank
     autocmd!
