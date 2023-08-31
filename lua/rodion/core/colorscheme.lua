@@ -1,4 +1,6 @@
 require("rose-pine").setup({
+	disable_italics = true,
+
 	highlight_groups = {
 		Function = { fg = "#94B3FD", bg = "none" },
 		Type = { fg = "rose", bg = "none" },
