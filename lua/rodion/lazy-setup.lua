@@ -147,4 +147,5 @@ require("lazy").setup({
 			"nvim-treesitter/nvim-treesitter",
 		},
 	},
+	"hashivim/vim-terraform",
 })
