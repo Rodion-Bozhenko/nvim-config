@@ -43,6 +43,7 @@ mason_null_ls.setup({
 		"eslint_d", -- ts/js linter
 		"revive", -- go linter
 		"tflint", -- terraform linter
+		"hadolint", -- dockerfile linter
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,
