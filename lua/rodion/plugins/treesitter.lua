@@ -1,4 +1,3 @@
--- import nvim-treesitter plugin safely
 local status, treesitter = pcall(require, "nvim-treesitter.configs")
 if not status then
 	return
@@ -10,7 +9,6 @@ vim.keymap.set("n", "[c", function()
 	require("treesitter-context").go_to_context()
 end, { silent = true })
 
--- configure treesitter
 treesitter.setup({
 	-- enable syntax highlighting
 	highlight = {
@@ -47,4 +45,20 @@ treesitter.setup({
 	},
 	-- auto install above language parsers
 	auto_install = true,
+	textobjects = {
+		select = {
+			enable = true,
+			lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+			keymaps = {
+				["aa"] = "@parameter.outer",
+				["ia"] = "@parameter.inner",
+				["af"] = "@function.outer",
+				["if"] = "@function.inner",
+				["ac"] = "@class.outer",
+				["ic"] = "@class.inner",
+				["ai"] = "@conditional.outer",
+				["ii"] = "@conditional.inner",
+			},
+		},
+	},
 })
