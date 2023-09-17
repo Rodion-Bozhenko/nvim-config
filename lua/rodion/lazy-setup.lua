@@ -88,6 +88,7 @@ require("lazy").setup({
 		},
 	},
 	"nvim-treesitter/nvim-treesitter-context",
+	"nvim-treesitter/nvim-treesitter-textobjects",
 	-- undo tree
 	"mbbill/undotree",
 	-- auto closing: autoclose parens, brackets, quotes, etc...
