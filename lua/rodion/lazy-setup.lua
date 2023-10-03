@@ -149,4 +149,9 @@ require("lazy").setup({
 		},
 	},
 	"hashivim/vim-terraform",
+	-- todo list
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 })
