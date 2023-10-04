@@ -138,8 +138,7 @@ require("lazy").setup({
 		end,
 	},
 	-- indent lines
-	"lukas-reineke/indent-blankline.nvim",
-
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	-- go tooling
 	{
 		"olexsmir/gopher.nvim",
