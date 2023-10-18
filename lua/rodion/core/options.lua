@@ -42,7 +42,9 @@ opt.iskeyword:append("-")
 
 opt.scrolloff = 16
 
-vim.opt.guicursor = ""
+opt.guicursor = ""
+
+vim.g.netrw_banner = 0
 
 vim.cmd([[
   augroup highlight_yank
