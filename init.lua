@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 require("rodion.lazy-setup")
 require("rodion.core.options")
 require("rodion.core.keymaps")
@@ -21,4 +23,4 @@ require("rodion.plugins.noice")
 require("rodion.plugins.harpoon")
 require("rodion.plugins.indent-blankline")
 require("rodion.plugins.gopher")
-require("rodion.plugins.todo-comments")
+-- require("rodion.plugins.todo-comments")
