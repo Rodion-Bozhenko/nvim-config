@@ -21,6 +21,7 @@ null_ls.setup({
 		formatting.stylua, -- lua formatter
 		formatting.gofmt, -- go formatter
 		formatting.goimports, -- go formatter
+		formatting.clang_format, -- cpp formatter
 		diagnostics.tflint,
 		diagnostics.revive,
 		diagnostics.hadolint,

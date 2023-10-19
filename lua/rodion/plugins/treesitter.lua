@@ -38,6 +38,7 @@ treesitter.setup({
 		"hcl",
 		"rust",
 		"go",
+		"cpp",
 		"gomod",
 		"sql",
 		"terraform",

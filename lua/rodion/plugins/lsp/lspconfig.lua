@@ -64,6 +64,14 @@ lspconfig["gopls"].setup({
 	on_attach = on_attach,
 })
 
+local clangdcap = vim.lsp.protocol.make_client_capabilities()
+clangdcap.offsetEncoding = { "utf-16" }
+
+lspconfig["clangd"].setup({
+	capabilities = clangdcap,
+	on_attach = on_attach,
+})
+
 lspconfig["tsserver"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,

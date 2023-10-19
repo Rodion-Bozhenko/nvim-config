@@ -27,10 +27,10 @@ mason_lspconfig.setup({
 		"cssls",
 		"dockerls",
 		"gopls",
+		"clangd",
 		"lua_ls",
 		"terraformls",
 	},
-	-- auto-install configured servers (with lspconfig)
 	automatic_installation = true, -- not the same as ensure_installed
 })
 
@@ -43,7 +43,7 @@ mason_null_ls.setup({
 		"revive", -- go linter
 		"tflint", -- terraform linter
 		"hadolint", -- dockerfile linter
+		"clang-format", -- cpp formatter
 	},
-	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,
 })
