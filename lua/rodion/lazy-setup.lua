@@ -13,9 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	"nvim-lua/plenary.nvim",
-	-- themes
+	-- theme
 	"rose-pine/neovim",
-	"bluz71/vim-nightfly-guicolors",
 	-- a lil nicer netrw
 	{
 		"prichrd/netrw.nvim",
@@ -33,10 +32,6 @@ require("lazy").setup({
 			})
 		end,
 	},
-	-- tmux & split window navigation
-	"christoomey/vim-tmux-navigator",
-	-- maximizes and restores current window
-	"szw/vim-maximizer",
 	-- essential plugins: add, delete, change surroundings (it's awesome)
 	"tpope/vim-surround",
 	-- commenting with gc
@@ -89,8 +84,6 @@ require("lazy").setup({
 	},
 	"nvim-treesitter/nvim-treesitter-context",
 	"nvim-treesitter/nvim-treesitter-textobjects",
-	-- undo tree
-	"mbbill/undotree",
 	-- auto closing: autoclose parens, brackets, quotes, etc...
 	"windwp/nvim-autopairs",
 	-- git integration: show line modifications on left hand side
@@ -129,28 +122,10 @@ require("lazy").setup({
 			"nvim-lua/popup.nvim",
 		},
 	},
-	-- startup screen
-	{
-		"startup-nvim/startup.nvim",
-		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-		config = function()
-			require("startup").setup()
-		end,
-	},
+	--undo tree
+	"mbbill/undotree",
 	-- indent lines
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-	-- go tooling
-	{
-		"olexsmir/gopher.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
-	},
+	-- syntax highlighting for terraform
 	"hashivim/vim-terraform",
-	-- todo list
-	{
-		"folke/todo-comments.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
 })

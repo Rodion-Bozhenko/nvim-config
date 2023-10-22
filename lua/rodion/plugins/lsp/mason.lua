@@ -41,7 +41,6 @@ mason_null_ls.setup({
 		"stylua", -- lua formatter
 		"eslint_d", -- ts/js linter
 		"revive", -- go linter
-		"tflint", -- terraform linter
 		"hadolint", -- dockerfile linter
 		"clang-format", -- cpp formatter
 	},
