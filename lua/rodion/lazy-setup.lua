@@ -34,6 +34,8 @@ require("lazy").setup({
 	},
 	-- essential plugins: add, delete, change surroundings (it's awesome)
 	"tpope/vim-surround",
+	-- moving between splits
+	"christoomey/vim-tmux-navigator",
 	-- commenting with gc
 	"numToStr/Comment.nvim",
 	-- statusline
