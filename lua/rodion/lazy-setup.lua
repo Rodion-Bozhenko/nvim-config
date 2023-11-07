@@ -92,8 +92,6 @@ require("lazy").setup({
 	"lewis6991/gitsigns.nvim",
 	-- git integration
 	"tpope/vim-fugitive",
-	-- transparent background
-	"xiyaowong/transparent.nvim",
 	-- moving to search pattern
 	{
 		"ggandor/leap.nvim",
