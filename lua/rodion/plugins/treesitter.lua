@@ -3,7 +3,10 @@ if not status then
 	return
 end
 
-require("treesitter-context").setup()
+require("treesitter-context").setup({
+	max_lines = 10,
+	multiline_threshold = 5,
+})
 
 vim.keymap.set("n", "[c", function()
 	require("treesitter-context").go_to_context()
