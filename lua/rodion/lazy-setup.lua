@@ -36,6 +36,16 @@ require("lazy").setup({
 	"tpope/vim-surround",
 	-- moving between splits
 	"christoomey/vim-tmux-navigator",
+	-- zellij like moving between splits
+	{
+		"Lilja/zellij.nvim",
+		config = function()
+			require("zellij").setup({
+				replaceVimWindowNavigationKeybinds = false,
+				vimTmuxNavigatorKeybinds = false,
+			})
+		end,
+	},
 	-- commenting with gc
 	"numToStr/Comment.nvim",
 	-- statusline
@@ -92,6 +102,25 @@ require("lazy").setup({
 	"lewis6991/gitsigns.nvim",
 	-- git integration
 	"tpope/vim-fugitive",
+	-- make Go development easier
+	{
+		"olexsmir/gopher.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("gopher").setup({
+				commands = {
+					go = "go",
+					gomodifytags = "gomodifytags",
+					gotests = "~/go/bin/gotests",
+					impl = "impl",
+					iferr = "iferr",
+				},
+			})
+		end,
+	},
 	-- moving to search pattern
 	{
 		"ggandor/leap.nvim",
