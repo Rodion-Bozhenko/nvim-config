@@ -57,6 +57,10 @@ keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
 keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
+keymap.set("n", "<leader>rh", ":vertical resize +10<CR>") -- increase window width
+keymap.set("n", "<leader>rl", ":vertical resize -10<CR>") -- decrease window width
+keymap.set("n", "<leader>rk", ":vertical resize +10<CR>") -- increase window height
+keymap.set("n", "<leader>rj", ":vertical resize -10<CR>") -- decrease window height
 
 -- change word under cursor in whole file
 keymap.set("n", "<leader>wfc", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
