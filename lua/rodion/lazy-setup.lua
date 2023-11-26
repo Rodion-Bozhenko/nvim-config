@@ -84,7 +84,14 @@ require("lazy").setup({
 	-- formatting & linting: configure formatters & linters
 	"jose-elias-alvarez/null-ls.nvim",
 	-- bridges gap b/w mason & null-ls
-	"jayp0521/mason-null-ls.nvim",
+	{
+		"jay-babu/mason-null-ls.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"williamboman/mason.nvim",
+			"jose-elias-alvarez/null-ls.nvim",
+		},
+	},
 	-- treesitter configuration
 	{
 		"nvim-treesitter/nvim-treesitter",

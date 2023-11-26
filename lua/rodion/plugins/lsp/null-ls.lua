@@ -1,38 +1,36 @@
--- import null-ls plugin safely
 local setup, null_ls = pcall(require, "null-ls")
 if not setup then
 	return
 end
 
--- for conciseness
-local formatting = null_ls.builtins.formatting -- to setup formatters
-local diagnostics = null_ls.builtins.diagnostics -- to setup linters
+local formatting = null_ls.builtins.formatting
+local diagnostics = null_ls.builtins.diagnostics
 
 -- to setup format on save
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
--- configure null_ls
 null_ls.setup({
-	-- setup formatters & linters
 	sources = {
-		--  to disable file types use
-		--  "formatting.prettier.with({disabled_filetypes = {}})" (see null-ls docs)
 		formatting.prettier, -- js/ts formatter
 		formatting.stylua, -- lua formatter
 		formatting.gofmt, -- go formatter
 		formatting.goimports, -- go formatter
 		formatting.clang_format, -- cpp formatter
-		diagnostics.revive,
 		diagnostics.hadolint,
-		--diagnostics.eslint_d.with({ -- js/ts linter
-		-- only enable eslint if root has .eslintrc.js
+		-- diagnostics.eslint_d.with({ -- js/ts linter
 		-- 	condition = function(utils)
-		-- 		return utils.root_has_file(".eslintrc")
+		-- 		return utils.root_has_file(".eslintrc") or utils.root_has_file(".eslintrc.js")
 		-- 	end,
 		-- }),
-		-- diagnostics.revive.with({ -- go linter
-		-- extra_args = { "-config ~/.config/nvim/lua/rodion/configs/revive.toml" },
-		-- }),
+		diagnostics.revive.with({ -- go linter
+			args = function()
+				local config_file = vim.fn.getcwd() .. "/revive.toml"
+				if vim.fn.filereadable(config_file) == 1 then
+					return { "-config=" .. config_file, "-formatter", "json", "./..." }
+				end
+				return { "-formatter", "json", "./..." }
+			end,
+		}),
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)
