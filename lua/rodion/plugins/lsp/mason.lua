@@ -30,6 +30,7 @@ mason_lspconfig.setup({
 		"clangd",
 		"lua_ls",
 		"terraformls",
+		"pyright",
 	},
 	automatic_installation = true, -- not the same as ensure_installed
 })
@@ -43,6 +44,7 @@ mason_null_ls.setup({
 		"revive", -- go linter
 		"hadolint", -- dockerfile linter
 		"clang-format", -- cpp formatter
+		"autopep8", -- python formatter
 	},
 	automatic_installation = true,
 })
