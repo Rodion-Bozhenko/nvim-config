@@ -150,6 +150,11 @@ require("lazy").setup({
 			"rcarriga/nvim-notify",
 		},
 	},
+	-- todo list
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 	-- harpoon
 	{
 		"ThePrimeagen/harpoon",

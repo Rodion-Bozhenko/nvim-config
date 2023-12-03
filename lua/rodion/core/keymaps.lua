@@ -146,3 +146,6 @@ keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if ne
 
 -- fugitive
 keymap.set("n", "<leader>G", ":Git<CR>", { noremap = true, silent = true })
+
+-- todo-comments
+keymap.set("n", "<leader>td", ":TodoTelescope<CR>", { noremap = true, silent = true })
