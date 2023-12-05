@@ -169,4 +169,5 @@ require("lazy").setup({
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	-- syntax highlighting for terraform
 	"hashivim/vim-terraform",
+	"simrat39/rust-tools.nvim",
 })

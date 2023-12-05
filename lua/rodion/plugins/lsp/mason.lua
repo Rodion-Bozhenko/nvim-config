@@ -31,6 +31,7 @@ mason_lspconfig.setup({
 		"lua_ls",
 		"terraformls",
 		"pyright",
+		"rust_analyzer",
 	},
 	automatic_installation = true, -- not the same as ensure_installed
 })
@@ -45,6 +46,7 @@ mason_null_ls.setup({
 		"hadolint", -- dockerfile linter
 		"clang-format", -- cpp formatter
 		"autopep8", -- python formatter
+		"rustfmt",
 	},
 	automatic_installation = true,
 })
