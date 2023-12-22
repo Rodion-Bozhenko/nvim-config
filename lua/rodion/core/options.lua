@@ -38,8 +38,6 @@ opt.clipboard:append("unnamedplus")
 opt.splitright = true
 opt.splitbelow = true
 
-opt.autochdir = true
-
 opt.iskeyword:append("-")
 
 opt.scrolloff = 16

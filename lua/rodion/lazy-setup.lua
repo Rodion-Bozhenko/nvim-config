@@ -33,9 +33,9 @@ require("lazy").setup({
 		end,
 	},
 	-- essential plugins: add, delete, change surroundings (it's awesome)
-	"tpope/vim-surround",
+	{ "tpope/vim-surround", keys = { "ys", "ds", "cs" } },
 	-- moving between splits
-	"christoomey/vim-tmux-navigator",
+	{ "christoomey/vim-tmux-navigator", keys = { "<C-h>", "<C-l>", "<C-j>", "<C-k>" } },
 	-- zellij like moving between splits
 	{
 		"Lilja/zellij.nvim",
@@ -45,31 +45,83 @@ require("lazy").setup({
 				vimTmuxNavigatorKeybinds = false,
 			})
 		end,
+		keys = { "<C-w>h", "<C-w>l", "<C-w>j", "<C-w>k" },
 	},
 	-- commenting with gc
-	"numToStr/Comment.nvim",
+	{
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup({})
+		end,
+		keys = { "gc", "gcc" },
+	},
 	-- statusline
 	"nvim-lualine/lualine.nvim",
 	-- fuzzy finding w/ telescope: dependency for better sorting performance
-	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	{
+		"nvim-telescope/telescope-fzf-native.nvim",
+		build = "make",
+	},
 	-- fuzzy finder
-	{ "nvim-telescope/telescope.nvim", branch = "0.1.x" },
+	{
+		"nvim-telescope/telescope.nvim",
+		branch = "0.1.x",
+		config = function()
+			local telescope = require("telescope")
+			local actions = require("telescope.actions")
+
+			telescope.setup({
+				defaults = {
+					mappings = {
+						i = {
+							["<C-k>"] = actions.move_selection_previous,
+							["<C-j>"] = actions.move_selection_next,
+							["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+						},
+					},
+					file_ignore_patterns = {
+						"yarn.lock",
+						"package-lock.json",
+						"node_modules/*",
+						".terraform/*",
+						"*.log",
+						"dist/*",
+						"build/*",
+						"debug",
+					},
+					preview = {
+						treesitter = false,
+						filesize_limit = 1,
+						highlight_limit = false,
+					},
+				},
+				pickers = {
+					live_grep = {
+						min_chars = 3,
+					},
+				},
+			})
+
+			telescope.load_extension("fzf")
+		end,
+		cmd = "Telescope",
+	},
 	-- autocompletion: completion plugin
-	"hrsh7th/nvim-cmp",
+	{ "hrsh7th/nvim-cmp", event = "InsertEnter" },
 	-- source for text in buffer
-	"hrsh7th/cmp-buffer",
+	{ "hrsh7th/cmp-buffer", event = "InsertEnter" },
 	-- source for file system paths
-	"hrsh7th/cmp-path",
+	{ "hrsh7th/cmp-path", event = "InsertEnter" },
 	-- for autocompletion to work
-	"L3MON4D3/LuaSnip",
+	{ "L3MON4D3/LuaSnip", event = "InsertEnter" },
 	-- managing & installing lsp servers, linters & formatters: in charge of managing lsp servers, linters & formatters
-	"williamboman/mason.nvim",
+	{ "williamboman/mason.nvim", event = { "BufRead", "BufNewFile" } },
 	-- bridges gap b/w mason & lspconfig
-	"williamboman/mason-lspconfig.nvim",
+	{ "williamboman/mason-lspconfig.nvim", event = { "BufRead", "BufNewFile" } },
 	-- configuring lsp servers: easily configure language servers
-	"neovim/nvim-lspconfig",
+	{ "neovim/nvim-lspconfig", event = { "BufRead", "BufNewFile" } },
 	-- for autocompletion
-	"hrsh7th/cmp-nvim-lsp",
+	{ "hrsh7th/cmp-nvim-lsp", event = { "BufRead", "BufNewFile" } },
 	-- enhanced lsp uis
 	{
 		"glepnir/lspsaga.nvim",
@@ -78,11 +130,12 @@ require("lazy").setup({
 			"nvim-tree/nvim-web-devicons",
 			"nvim-treesitter/nvim-treesitter",
 		},
+		event = { "BufRead", "BufNewFile" },
 	},
 	-- vs-code like icons for autocompletion
-	"onsails/lspkind.nvim",
+	{ "onsails/lspkind.nvim", event = { "BufRead", "BufNewFile" } },
 	-- formatting & linting: configure formatters & linters
-	"jose-elias-alvarez/null-ls.nvim",
+	{ "jose-elias-alvarez/null-ls.nvim", event = { "BufReadPre", "BufNewFile" } },
 	-- bridges gap b/w mason & null-ls
 	{
 		"jay-babu/mason-null-ls.nvim",
@@ -100,15 +153,16 @@ require("lazy").setup({
 			-- autoclose tags
 			"windwp/nvim-ts-autotag",
 		},
+		event = { "BufReadPre", "BufNewFile" },
 	},
-	"nvim-treesitter/nvim-treesitter-context",
-	"nvim-treesitter/nvim-treesitter-textobjects",
+	{ "nvim-treesitter/nvim-treesitter-context", event = { "BufReadPre", "BufNewFile" } },
+	{ "nvim-treesitter/nvim-treesitter-textobjects", event = { "BufReadPre", "BufNewFile" } },
 	-- auto closing: autoclose parens, brackets, quotes, etc...
-	"windwp/nvim-autopairs",
+	{ "windwp/nvim-autopairs", event = "InsertEnter" },
 	-- git integration: show line modifications on left hand side
-	"lewis6991/gitsigns.nvim",
+	{ "lewis6991/gitsigns.nvim", event = { "BufRead", "BufWritePost" } },
 	-- git integration
-	"tpope/vim-fugitive",
+	{ "tpope/vim-fugitive", cmd = { "Git", "Gstatus", "Gread", "Gwrite" } },
 	-- make Go development easier
 	{
 		"olexsmir/gopher.nvim",
@@ -127,13 +181,19 @@ require("lazy").setup({
 				},
 			})
 		end,
+		ft = "go",
 	},
 	-- moving to search pattern
 	{
 		"ggandor/leap.nvim",
 		config = function()
-			require("leap").set_default_keymaps()
+			local leap = require("leap")
+			leap.set_default_keymaps()
+
+			leap.opts.highlight_unlabeled_phase_one_targets = true
+			leap.opts.case_sensitive = true
 		end,
+		keys = { "s", "S" },
 	},
 	-- highlight all uses of word under cursor
 	{
@@ -141,6 +201,7 @@ require("lazy").setup({
 		config = function()
 			vim.g.Illuminate_delay = 0
 		end,
+		event = { "CursorMoved", "CursorMovedI" },
 	},
 	-- noice ui
 	{
@@ -158,20 +219,21 @@ require("lazy").setup({
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+		cmd = { "Trouble", "TroubleRefresh", "TroubleClose", "TroubleToggle" },
 	},
 	-- harpoon
 	{
 		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"nvim-lua/popup.nvim",
 		},
 	},
 	--undo tree
-	"mbbill/undotree",
+	{ "mbbill/undotree", cmd = "UndotreeToggle" },
 	-- indent lines
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	-- syntax highlighting for terraform
-	"hashivim/vim-terraform",
-	"simrat39/rust-tools.nvim",
+	{ "hashivim/vim-terraform", ft = "terraform" },
+	{ "simrat39/rust-tools.nvim", ft = "rust" },
 })
