@@ -88,6 +88,9 @@ require("lazy").setup({
 						"dist/*",
 						"build/*",
 						"debug",
+						"Cargo.lock",
+						".git/",
+						"venv",
 					},
 					preview = {
 						treesitter = false,
@@ -98,6 +101,10 @@ require("lazy").setup({
 				pickers = {
 					live_grep = {
 						min_chars = 3,
+					},
+					find_files = {
+						hidden = true,
+						no_ignore = true,
 					},
 				},
 			})
@@ -236,4 +243,22 @@ require("lazy").setup({
 	-- syntax highlighting for terraform
 	{ "hashivim/vim-terraform", ft = "terraform" },
 	{ "simrat39/rust-tools.nvim", ft = "rust" },
+	{
+		"rust-lang/rust.vim",
+		ft = "rust",
+		init = function()
+			vim.g.rustfmt_autosave = 1
+		end,
+	},
+	{
+		"saecki/crates.nvim",
+		tag = "stable",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		event = "BufReadPre Cargo.toml",
+		config = function()
+			local crates = require("crates")
+			crates.setup()
+			crates.show()
+		end,
+	},
 })
