@@ -27,6 +27,7 @@ mason_lspconfig.setup({
 		"cssls",
 		"dockerls",
 		"gopls",
+		"templ",
 		"clangd",
 		"lua_ls",
 		"terraformls",

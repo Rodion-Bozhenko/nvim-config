@@ -88,9 +88,11 @@ require("lazy").setup({
 						"dist/*",
 						"build/*",
 						"debug",
+						"release",
 						"Cargo.lock",
 						".git/",
 						"venv",
+						".idea",
 					},
 					preview = {
 						treesitter = false,
@@ -260,5 +262,9 @@ require("lazy").setup({
 			crates.setup()
 			crates.show()
 		end,
+	},
+	{
+		"joerdav/templ.vim",
+		ft = "templ",
 	},
 })
