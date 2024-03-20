@@ -87,6 +87,17 @@ lspconfig["terraformls"].setup({
 	on_attach = on_attach,
 })
 
+lspconfig["sqls"].setup({
+	on_attach = function(client, bufnr)
+		require("sqls").on_attach(client, bufnr)
+	end,
+})
+
+lspconfig["bashls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 lspconfig["pyright"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,

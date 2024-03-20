@@ -33,6 +33,8 @@ mason_lspconfig.setup({
 		"terraformls",
 		"pyright",
 		"rust_analyzer",
+		"sqls",
+		"bashls",
 	},
 	automatic_installation = true, -- not the same as ensure_installed
 })

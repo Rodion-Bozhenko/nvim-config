@@ -34,6 +34,8 @@ require("lazy").setup({
 	},
 	-- essential plugins: add, delete, change surroundings (it's awesome)
 	{ "tpope/vim-surround", keys = { "ys", "ds", "cs" } },
+	-- add '.' support for Tim Pope plugins
+	"tpope/vim-repeat",
 	-- moving between splits
 	{ "christoomey/vim-tmux-navigator", keys = { "<C-h>", "<C-l>", "<C-j>", "<C-k>" } },
 	-- zellij like moving between splits
@@ -93,6 +95,7 @@ require("lazy").setup({
 						".git/",
 						"venv",
 						".idea",
+						".next",
 					},
 					preview = {
 						treesitter = false,
@@ -267,4 +270,5 @@ require("lazy").setup({
 		"joerdav/templ.vim",
 		ft = "templ",
 	},
+	{ "nanotee/sqls.nvim", ft = "sql" },
 })

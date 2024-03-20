@@ -63,7 +63,7 @@ keymap.set("n", "<leader>rk", ":vertical resize +10<CR>") -- increase window hei
 keymap.set("n", "<leader>rj", ":vertical resize -10<CR>") -- decrease window height
 
 -- Go if err != nil
-keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
+keymap.set("n", "<leader>ae", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
 
 -- change word under cursor in whole file
 keymap.set("n", "<leader>wfc", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
