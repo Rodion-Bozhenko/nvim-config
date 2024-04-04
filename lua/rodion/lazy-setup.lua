@@ -78,7 +78,7 @@ require("lazy").setup({
 						i = {
 							["<C-k>"] = actions.move_selection_previous,
 							["<C-j>"] = actions.move_selection_next,
-							["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+							["<M-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
 						},
 					},
 					file_ignore_patterns = {
@@ -98,7 +98,7 @@ require("lazy").setup({
 						".next",
 					},
 					preview = {
-						treesitter = false,
+						treesitter = true,
 						filesize_limit = 1,
 						highlight_limit = false,
 					},
@@ -271,4 +271,10 @@ require("lazy").setup({
 		ft = "templ",
 	},
 	{ "nanotee/sqls.nvim", ft = "sql" },
+	{
+		"NvChad/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+	},
 })
